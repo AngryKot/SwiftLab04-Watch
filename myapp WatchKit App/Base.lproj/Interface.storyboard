@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="21507" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="X6s-ta-0ir">
+    <device id="watch38"/>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="21501"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+    </dependencies>
+    <scenes>
+        <!--Detals Interface Controller-->
+        <scene sceneID="RIu-yq-NuM">
+            <objects>
+                <controller id="qLh-qB-zvv" customClass="DetalsInterfaceController" customModule="myapp_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="32" alignment="left" id="z4W-l9-J5K">
+                            <items>
+                                <imageView width="32" height="32" alignment="center" image="drop.triangle" catalog="system" id="p6S-Bz-eYq"/>
+                                <label alignment="center" text="(name)" id="YTS-RV-1Zq"/>
+                            </items>
+                        </group>
+                        <imageView alignment="center" image="book" catalog="system" id="HuJ-fx-JvV"/>
+                        <group width="1" alignment="left" layout="vertical" id="hSc-xz-bdS">
+                            <items>
+                                <label alignment="left" text="Author:" id="QmM-DI-P1C"/>
+                                <label alignment="left" text="(author)" textAlignment="left" id="WPi-Um-seO"/>
+                                <group width="1" alignment="left" layout="vertical" id="VUD-Qm-941">
+                                    <items>
+                                        <label alignment="left" text="Description:" id="kwa-Ez-I83"/>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <button alignment="left" id="D0b-Ew-hKC">
+                            <group key="contentGroup" width="1" alignment="left" id="QHJ-U4-fsc">
+                                <items>
+                                    <label alignment="left" text="(description)" textAlignment="left" id="wPN-WD-Kik" userLabel="(recipe text)"/>
+                                </items>
+                            </group>
+                            <connections>
+                                <segue destination="qt3-n2-UlD" kind="push" id="SKU-Sc-0ft"/>
+                            </connections>
+                        </button>
+                        <slider width="1" alignment="left" value="1" maximum="3" steps="3" minimumImage="star" catalog="system" maximumImage="star.fill" id="ZI7-He-u6h">
+                            <color key="color" name="orange"/>
+                            <connections>
+                                <action selector="onRatingChange:" destination="qLh-qB-zvv" id="3yI-sJ-rZ5"/>
+                            </connections>
+                        </slider>
+                    </items>
+                    <connections>
+                        <outlet property="recipeAuthor" destination="WPi-Um-seO" id="JMD-OX-Zwu"/>
+                        <outlet property="recipeIcon" destination="HuJ-fx-JvV" id="J9o-ts-hHJ"/>
+                        <outlet property="recipeImage" destination="p6S-Bz-eYq" id="Jsa-O1-FsR"/>
+                        <outlet property="recipeName" destination="YTS-RV-1Zq" id="y6I-y0-W6M"/>
+                        <outlet property="recipeRaiting" destination="ZI7-He-u6h" id="3AV-wT-Tz1"/>
+                        <outlet property="recipeText" destination="wPN-WD-Kik" id="rdw-Gq-dgr"/>
+                        <segue destination="qt3-n2-UlD" kind="relationship" relationship="nextPage" id="4VW-45-gS0"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="548" y="-69"/>
+        </scene>
+        <!--Startup Interface Controller-->
+        <scene sceneID="Pgc-CG-Ubm">
+            <objects>
+                <controller id="X6s-ta-0ir" customClass="StartupInterfaceController" customModule="myapp_WatchKit_Extension">
+                    <items>
+                        <imageView alignment="center" verticalAlignment="center" image="logo" id="EzH-0x-SBl"/>
+                        <label alignment="center" verticalAlignment="center" text="CookBook" textAlignment="center" id="Zmw-4c-N3G">
+                            <color key="textColor" name="white"/>
+                            <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <segue destination="iyC-pP-y9d" kind="relationship" relationship="nextPage" id="7qj-cx-jIL"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-138" y="-69"/>
+        </scene>
+        <!--Description Interface Controller-->
+        <scene sceneID="6F4-eT-lPQ">
+            <objects>
+                <controller id="qt3-n2-UlD" customClass="DescriptionInterfaceController" customModule="myapp_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="(full description)" numberOfLines="20" id="SVD-z2-vfE"/>
+                    </items>
+                    <connections>
+                        <outlet property="longText" destination="SVD-z2-vfE" id="fwv-xE-21k"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="912" y="-69"/>
+        </scene>
+        <!--Table Interface Controller-->
+        <scene sceneID="3zo-dj-gbx">
+            <objects>
+                <controller id="iyC-pP-y9d" customClass="TableInterfaceController" customModule="myapp_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="MTx-cc-kBn">
+                            <items>
+                                <tableRow identifier="myrow" id="JrK-nM-CYl" customClass="TableRow" customModule="myapp_WatchKit_App" customModuleProvider="target">
+                                    <group key="rootItem" width="1" alignment="left" id="w0z-Y6-wAy">
+                                        <items>
+                                            <imageView width="32" height="32" alignment="center" verticalAlignment="center" image="cube" catalog="system" id="Erq-cb-Aq1"/>
+                                            <label alignment="center" verticalAlignment="center" text="(recipe name)" id="pkg-LY-lvK" userLabel="(recipe name)">
+                                                <color key="textColor" name="white"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="recipeIcon" destination="Erq-cb-Aq1" id="7PC-5j-DcQ"/>
+                                        <outlet property="recipeName" destination="pkg-LY-lvK" id="k06-vQ-Dgs"/>
+                                        <segue destination="qLh-qB-zvv" kind="push" id="RNh-Zv-4Nd"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="MTx-cc-kBn" id="OSA-3m-aqo"/>
+                        <segue destination="qLh-qB-zvv" kind="relationship" relationship="nextPage" id="IeU-HY-Qbf"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="172" y="-78"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="SKU-Sc-0ft"/>
+        <segue reference="RNh-Zv-4Nd"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="book" catalog="system" width="128" height="101"/>
+        <image name="cube" catalog="system" width="128" height="124"/>
+        <image name="drop.triangle" catalog="system" width="128" height="111"/>
+        <image name="logo" width="96" height="96"/>
+        <image name="star" catalog="system" width="128" height="115"/>
+        <image name="star.fill" catalog="system" width="128" height="115"/>
+        <namedColor name="orange">
+            <color red="0.91500002145767212" green="0.70999997854232788" blue="0.22400000691413879" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="white">
+            <color red="1" green="0.96899998188018799" blue="0.94499999284744263" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>
